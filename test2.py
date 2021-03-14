@@ -184,7 +184,7 @@ def main():
         opt_centroids_params_all.append(centroids_params)
         opt_centroids_params = [centroids_params]
         optimizer_centroids = CentroidSGD(opt_centroids_params,         lr=0.01,momentum=0.9,weight_decay=0.0001)
-        finetune_centroids(trainloader, student.eval(), teacher, criterion, optimizer_centroids, n_iter=10)
+        finetune_centroids(trainloader, student.eval(), teacher, criterion, optimizer_centroids, n_iter=100)
         
         bpd = evaluate(testloader, student, criterion)
         print('bits per dim:{:.4f} '.format(bpd))
